@@ -1,0 +1,5 @@
+@echo off
+rem #
+rem # Path to the staging directory
+rem #
+set STAGE_DIR=${STAGE_DIR}

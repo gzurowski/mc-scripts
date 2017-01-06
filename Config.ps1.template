@@ -1,0 +1,18 @@
+#
+# User-defined configuration settings
+#
+#
+# Add all custom configuration settings to this file
+# instead of changing any settings in AppConfig.ps1.
+#
+#
+# For example:
+#
+# If you want to change the list of bitmap file extensions, add 
+# the following line to this file:
+#
+#   Set-Variable AudioExt -Value "flac" -Force
+#
+# Note: You must add the '-Force' flag in order to successfully
+# override the default configuration.
+#
