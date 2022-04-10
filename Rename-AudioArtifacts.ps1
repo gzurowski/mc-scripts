@@ -90,8 +90,8 @@ function RenameArtwork ([string]$prefix) {
         elseif ($file.Name -match "sleeve-(?<side>front|back)\.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName ("Sleeve-" + $matches.side.Substring(0, 1).ToUpper() + $matches.side.Substring(1).ToLower()) $prefix $matches.ext
         }
-        elseif ($file.Name -eq "folder.jpg") {
-            # do nothing
+        elseif ($file.Name -match "folder.jpg") {
+            $newName = "folder.jpg"
         }
         else {
             'no rule for <' + $file.Name + '>'
