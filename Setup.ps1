@@ -14,7 +14,7 @@ Add-Type -assembly "system.io.compression.filesystem"
 $arch = (Get-WmiObject Win32_OperatingSystem).OSArchitecture
 
 # Download URLs
-Set-Variable FlacDownloadUrl -Value "http://downloads.xiph.org/releases/flac/flac-1.3.2-win.zip" -Option Constant
+Set-Variable FlacDownloadUrl -Value "http://downloads.xiph.org/releases/flac/flac-1.3.4-win.zip" -Option Constant
 Set-Variable ParDownloadUrl -Value "https://multipar.org/MultiPar1302.zip" -Option Constant
 Set-Variable TaglibDownloadUrl -Value "https://www.nuget.org/api/v2/package/taglib/2.1.0" -Option Constant
 
