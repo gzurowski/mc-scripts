@@ -48,46 +48,46 @@ function RenameArtwork ([string]$prefix) {
     {
         $newName = $null
 
-        if ($file.Name -match "^(cd(?<cd>\d+)-?)?book(?<no>\d+)\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Booklet(?<no>\d+)\.(?<ext>$BitmapExt)$") {
+        if ($file.Name -match "(cd(?<cd>\d+)-?)?book(?<no>\d+)\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Booklet(?<no>\d+)\.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName "Booklet" $prefix $matches.ext $matches.cd $matches.no
         }
-        elseif ($file.Name -match "^(cd(?<cd>\d+)-?)?front\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Front\.(?<ext>$BitmapExt)$") {
+        elseif ($file.Name -match "(cd(?<cd>\d+)-?)?front\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Front\.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName "Front" $prefix $matches.ext $matches.cd
         }
-        elseif ($file.Name -match "^(cd(?<cd>\d+)-?)?inside(?<no>\d+)?\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Inside(?<no>\d+)?\.(?<ext>$BitmapExt)$") {
+        elseif ($file.Name -match "(cd(?<cd>\d+)-?)?inside(?<no>\d+)?\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Inside(?<no>\d+)?\.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName "Inside" $prefix $matches.ext $matches.cd $matches.no
         }
-        elseif ($file.Name -match "^(cd(?<cd>\d+)-?)?back\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Back\.(?<ext>$BitmapExt)$") {
+        elseif ($file.Name -match "(cd(?<cd>\d+)-?)?back\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Back\.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName "Back" $prefix $matches.ext $matches.cd
         }
-        elseif ($file.Name -match "^(cd(?<cd>\d+)-?)?digipac?k\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Digipak-Outside\.(?<ext>$BitmapExt)$") {
+        elseif ($file.Name -match "(cd(?<cd>\d+)-?)?digipac?k\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Digipak-Outside\.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName "Digipak-Outside" $prefix $matches.ext $matches.cd
         }
-        elseif ($file.Name -match "^(cd(?<cd>\d+)-?)?digipac?k\-inside(?<no>\d+)?\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Digipak-Inside(?<no>\d+)?\.(?<ext>$BitmapExt)$") {
+        elseif ($file.Name -match "(cd(?<cd>\d+)-?)?digipac?k\-inside(?<no>\d+)?\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Digipak-Inside(?<no>\d+)?\.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName "Digipak-Inside" $prefix $matches.ext $matches.cd $matches.no
         }
-        elseif ($file.Name -match "^slip-?f(ront)?\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-Slipcase-Front.(?<ext>$BitmapExt)$") {
+        elseif ($file.Name -match "slip-?f(ront)?\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-Slipcase-Front.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName "Slipcase-Front" $prefix $matches.ext
         }
-        elseif ($file.Name -match "^slip-?b(ack)?\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-Slipcase-Back.(?<ext>$BitmapExt)$") {
+        elseif ($file.Name -match "slip-?b(ack)?\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-Slipcase-Back.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName "Slipcase-Back" $prefix $matches.ext
         }
-        elseif ($file.Name -match "^slip-?spine\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-Slipcase-Spine.(?<ext>$BitmapExt)$") {
+        elseif ($file.Name -match "slip-?spine\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-Slipcase-Spine.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName "Slipcase-Spine" $prefix $matches.ext
         }
-        elseif ($file.Name -match "^cd(?<cd>\d*)-?(cd)?(?<side>_?[ab])?\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-CD(?<cd>\d*)(-CD)?(?<side>_?[ab])?\.(?<ext>$BitmapExt)$") {
+        elseif ($file.Name -match "cd(?<cd>\d*)-?(cd)?(?<side>_?[ab])?\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-CD(?<cd>\d*)(-CD)?(?<side>_?[ab])?\.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName ("CD" + $matches.side) $prefix $matches.ext $matches.cd
         }
-        elseif ($file.Name -match "^dvd(?<dvd>\d*)-?(dvd)?(?<side>_?[ab])?\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-DVD(?<dvd>\d*)(-DVD)?(?<side>_?[ab])?\.(?<ext>$BitmapExt)$") {
+        elseif ($file.Name -match "dvd(?<dvd>\d*)-?(dvd)?(?<side>_?[ab])?\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-DVD(?<dvd>\d*)(-DVD)?(?<side>_?[ab])?\.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName ("DVD" + $matches.side) $prefix $matches.ext $matches.dvd
         }
-        elseif ($file.Name -match "^(cd(?<cd>\d+)-?)?mini.jpg$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Front_small\.jpg$") {
+        elseif ($file.Name -match "(cd(?<cd>\d+)-?)?mini.jpg$" -or $file.Name -match "_-_Artwork-(CD(?<cd>\d+)-)?Front_small\.jpg$") {
             $newName = GetArtworkFileName "Front_small" $prefix "jpg" $matches.cd
         }
-        elseif ($file.Name -match "^obi\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-Obi\.(?<ext>$BitmapExt)$") {
+        elseif ($file.Name -match "obi\.(?<ext>$BitmapExt)$" -or $file.Name -match "_-_Artwork-Obi\.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName "Obi" $prefix $matches.ext
         }
-        elseif ($file.Name -match "^sleeve-(?<side>front|back)\.(?<ext>$BitmapExt)$") {
+        elseif ($file.Name -match "sleeve-(?<side>front|back)\.(?<ext>$BitmapExt)$") {
             $newName = GetArtworkFileName ("Sleeve-" + $matches.side.Substring(0, 1).ToUpper() + $matches.side.Substring(1).ToLower()) $prefix $matches.ext
         }
         elseif ($file.Name -eq "folder.jpg") {
