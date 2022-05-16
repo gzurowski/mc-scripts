@@ -16,7 +16,7 @@ $arch = (Get-WmiObject Win32_OperatingSystem).OSArchitecture
 # Download URLs
 Set-Variable FlacDownloadUrl -Value "http://downloads.xiph.org/releases/flac/flac-1.3.4-win.zip" -Option Constant
 Set-Variable ParDownloadUrl -Value "https://ftp.vector.co.jp/74/39/3430/MultiPar131.zip" -Option Constant
-Set-Variable TaglibDownloadUrl -Value "https://github.com/mono/taglib-sharp/archive/refs/tags/TaglibSharp-2.2.0.0.zip" -Option Constant
+Set-Variable TaglibDownloadUrl -Value "https://www.nuget.org/api/v2/package/taglib/2.1.0" -Option Constant
 
 # Temporary directory for setup files
 Set-Variable SetupPath -Value (Join-Path $env:temp ("mc-scripts-" + [System.Guid]::NewGuid().ToString())) -Option ReadOnly
