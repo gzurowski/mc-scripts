@@ -68,7 +68,7 @@ function InstallFlac()
     "Installing Flac..."
     $setupPathFlac = InstallDependency "flac" $FlacDownloadUrl
     # Copy the correct binary corresponding to the current CPU architecture
-    Copy-Item -Force ($setupPathFlac + "\flac*\" + (@{$true = "win64"; $false = "win32"}[$arch -eq "64-bit"]) + "\flac.exe") $BinPath
+    Copy-Item -Force ($setupPathFlac + "\flac*\" + (@{$true = "win64"; $false = "win32"}[$arch -eq "64-bit"]) + "\*.*") $BinPath
 }
 
 #
