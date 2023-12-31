@@ -15,7 +15,7 @@ $arch = (Get-WmiObject Win32_OperatingSystem).OSArchitecture
 
 # Download URLs
 Set-Variable FlacDownloadUrl -Value "http://downloads.xiph.org/releases/flac/flac-1.4.3-win.zip" -Option Constant
-Set-Variable ParDownloadUrl -Value "https://ftp.vector.co.jp/74/39/3430/MultiPar131.zip" -Option Constant
+Set-Variable ParDownloadUrl -Value "https://github.com/Yutaka-Sawada/MultiPar/releases/download/v1.3.2.9/MultiPar132.zip" -Option Constant
 Set-Variable TaglibDownloadUrl -Value "https://www.nuget.org/api/v2/package/taglib/2.1.0" -Option Constant
 
 # Temporary directory for setup files
